@@ -12,6 +12,6 @@ Book.prototype.changeReadStatus = function(){
     this.hasRead = !this.hasRead;
 }
 
-let bookOne = Object.create("Title1","ath1","1967",246,false);
-let bookTwo = Object.create("Title2","ath2","1984",269,true);
-let bookThree = Object.create("Title3","ath3","1996",960,true);
+let bookOne = new Book("Title1","ath1","1967",246,false);
+let bookTwo = new Book("Title2","ath2","1984",269,true);
+let bookThree = new Book("Title3","ath3","1996",960,true);
