@@ -24,13 +24,21 @@ Book.prototype.drawRow = function(){
         const text = document.createTextNode(this[key]);
         cell.appendChild(text);
     })
+    const cell = this.row.insertCell(-1);
+    this.deleteButton = document.createElement("button");
+    this.deleteButton.textContent = "Delete";
+    cell.appendChild(this.deleteButton);
+    this.deleteButton.addEventListener("click",this,false);
 }
 Book.prototype.sort = function(){
     libraryTable.appendChild(this.row);
 }
-Book.prototype.delete = function(library){
+Book.prototype.handleEvent = function(event){
+    //delete book
+    this.deleteButton.removeEventListener("click",this);
     libraryTable.deleteRow(this.row.rowIndex-1);
-    return library.filter(obj => obj!==this);
+    myLibrary = myLibrary.filter(obj => obj!==this);
+    
 }
 function clearForm(event){
     formInputs.forEach(input => input.value= "");
