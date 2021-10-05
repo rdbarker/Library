@@ -52,10 +52,19 @@ function addBook(event){
     formInputs.forEach(input => input.value= "");
     event.preventDefault();
 }
+function sortLibrary(key,reverse=false){
+    myLibrary.sort((a,b) => {
+        if (a[key]<b[key]) return -1;
+        else if (a[key]>b[key]) return 1;
+        else return 0;
+    })
+    if (reverse===true) myLibrary = myLibrary.reverse();
+    myLibrary.forEach(book => book.sort());
+}
 
-let bookOne = new Book("Title1","ath1","1967",246,false);
-let bookTwo = new Book("Title2","ath2","1984",269,true);
-let bookThree = new Book("Title3","ath3","1996",960,true);
+let bookOne = new Book("TitlePPP","ath6","1967",246,false);
+let bookTwo = new Book("TitleAAA","ath2","1984",269,true);
+let bookThree = new Book("TitleHHH","ath3","1996",960,true);
 
 form.addEventListener("submit",addBook,false);
 form.addEventListener("reset",clearForm,false);
