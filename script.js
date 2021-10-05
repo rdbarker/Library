@@ -41,14 +41,15 @@ Book.prototype.handleEvent = function(event){
     
 }
 function clearForm(event){
-    formInputs.forEach(input => input.value= "");
+    formInputs.forEach(input => {
+        if(input.type==="checkbox") input.checked = false;
+        else input.value= "";
+    })
     event.preventDefault();
 }
 function addBook(event){
-    let readStatus = false;
-    if (formInputs[4].value==='on') readStatus = true;
     myLibrary.push(new Book(formInputs[0].value,formInputs[1].value,formInputs[2].value,
-        formInputs[3].value,readStatus));
+        formInputs[3].value,formInputs[4].checked));
     formInputs.forEach(input => input.value= "");
     event.preventDefault();
 }
