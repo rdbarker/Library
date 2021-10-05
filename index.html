@@ -29,8 +29,8 @@
                     <input type="checkbox" name="read">
                 </label>
                 <div class="buttons">
-                    <button type="submit" id="add-book">Add Book</button>
-                    <button type ="reset" id="clear-form">Clear Form</button>
+                    <button type="submit" id="add-book"><span class="icon-plus"></span></button>
+                    <button type ="reset" id="clear-form"><span class="icon-trash"></span></button>
                 </div>
             </form>
 
@@ -40,11 +40,11 @@
         <table class="library">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Date</th>
-                    <th>Pages</th>
-                    <th>Read Status</th>
+                    <th>Title<span data-sort="title" class="icon-arrow-unsorted icon"></span></th>
+                    <th>Author<span data-sort="author" class="icon-arrow-unsorted icon"></span></th>
+                    <th>Date<span data-sort="date" class="icon-arrow-unsorted icon"></span></th>
+                    <th>Pages<span data-sort="pages" class="icon-arrow-unsorted icon"></span></th>
+                    <th>Read Status<span data-sort="hasRead" class="icon-arrow-unsorted icon"></span></th>
                     <th>Remove</th>
                 </tr>
             </thead>

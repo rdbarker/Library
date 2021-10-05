@@ -26,7 +26,11 @@ Book.prototype.drawRow = function(){
     })
     const cell = this.row.insertCell(-1);
     this.deleteButton = document.createElement("button");
-    this.deleteButton.textContent = "Delete";
+    //this.deleteButton.textContent = "Delete";
+    //<span class="icon-times"></span>
+    const span = document.createElement("span");
+    span.classList.add("icon-times");
+    this.deleteButton.appendChild(span);
     cell.appendChild(this.deleteButton);
     this.deleteButton.addEventListener("click",this,false);
 }

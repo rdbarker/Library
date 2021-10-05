@@ -1,4 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Montserrat&display=swap');
+@font-face {
+    font-family: 'icomoon';
+    src:  url('fonts/icomoon.eot?e0caa2');
+    src:  url('fonts/icomoon.eot?e0caa2#iefix') format('embedded-opentype'),
+      url('fonts/icomoon.ttf?e0caa2') format('truetype'),
+      url('fonts/icomoon.woff?e0caa2') format('woff'),
+      url('fonts/icomoon.svg?e0caa2#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-arrow-sorted-down:before {
+    content: "\e900";
+  }
+  .icon-arrow-sorted-up:before {
+    content: "\e901";
+  }
+  .icon-arrow-unsorted:before {
+    content: "\e902";
+  }
+  .icon-plus:before {
+    content: "\e903";
+  }
+  .icon-tick:before {
+    content: "\e904";
+  }
+  .icon-times:before {
+    content: "\e905";
+  }
+  .icon-trash:before {
+    content: "\e906";
+  }
 html{
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
@@ -61,4 +109,10 @@ button{
 }
 .controls{
     color: rgb(243, 243, 243);
+}
+.icon{
+    margin-left: .25em;
+    display: inline-block;
+    position: relative;
+    top: 0.1em;
 }
