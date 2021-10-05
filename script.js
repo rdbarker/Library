@@ -32,22 +32,25 @@ Book.prototype.delete = function(library){
     libraryTable.deleteRow(this.row.rowIndex-1);
     return library.filter(obj => obj!==this);
 }
-function clearForm(){
+function clearForm(event){
     formInputs.forEach(input => input.value= "");
+    event.preventDefault();
 }
-function addBook(){
+function addBook(event){
     let readStatus = false;
     if (formInputs[4].value==='on') readStatus = true;
     myLibrary.push(new Book(formInputs[0].value,formInputs[1].value,formInputs[2].value,
-        formInputs[3].value,readStatus))
+        formInputs[3].value,readStatus));
+    formInputs.forEach(input => input.value= "");
+    event.preventDefault();
 }
 
 let bookOne = new Book("Title1","ath1","1967",246,false);
 let bookTwo = new Book("Title2","ath2","1984",269,true);
 let bookThree = new Book("Title3","ath3","1996",960,true);
 
-addBookButton.addEventListener("click",addBook,false);
-clearBookForm.addEventListener("click",clearForm,false);
+form.addEventListener("submit",addBook,false);
+form.addEventListener("reset",clearForm,false);
 
 myLibrary= [bookOne,bookTwo,bookThree];
 
