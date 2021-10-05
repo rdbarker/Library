@@ -39,10 +39,14 @@ tbody tr:nth-of-type(odd) {
 form{
    margin-bottom: 32px; 
    display: flex;
-   flex-wrap: wrap;
+   
 }
 label{
-    max-width: 200px;
+    flex-grow: 3;
+    flex-basis: 25%;
+}
+.buttons{
+    flex-grow: 1;
 }
 button{
     width: 64px;
@@ -50,5 +54,6 @@ button{
 .container{
     display: flex;
     flex-direction: column;
+    width: 100vw;
     max-width: 1200px;
 }

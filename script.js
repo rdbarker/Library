@@ -54,7 +54,7 @@ function addBook(event){
     event.preventDefault();
 }
 function sortLibrary(key,reverse=false){
-    if (key="hasRead"){
+    if (key==="hasRead"){
         myLibrary.sort((a,b) => {
             if (a[key]>b[key]) return -1;
             else if (a[key]<b[key]) return 1;
@@ -72,7 +72,7 @@ function sortLibrary(key,reverse=false){
     myLibrary.forEach(book => book.sort());
 }
 
-let bookOne = new Book("TitlePPP","ath6","1967",246,false);
+let bookOne = new Book("TitlePPP","bbb","1967",246,false);
 let bookTwo = new Book("TitleAAA","ath2","1984",269,true);
 let bookThree = new Book("TitleHHH","ath3","1996",960,true);
 
