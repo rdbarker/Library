@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Montserrat&display=swap');
 html{
     font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+body{
+    display: flex;
+    justify-content: center;
 }
 
 h1 {
@@ -12,22 +18,37 @@ table {
     color: #333;
     background: white;
     border: 1px solid grey;
-    font-size: 12pt;
     border-collapse: collapse;
   }
-  table thead th,
-  table tfoot th {
+table thead th,
+table tfoot th {
     color: #777;
     background: rgba(0,0,0,.1);
   }
-  table caption {
+table caption {
     padding:.5em;
   }
-  table th,
-  table td {
+table th,
+table td {
     padding: .5em;
     border: 1px solid lightgrey;
   }
-  tbody tr:nth-of-type(odd) {
+tbody tr:nth-of-type(odd) {
     background: rgba(0,0,0,.05);
   }
+form{
+   margin-bottom: 32px; 
+   display: flex;
+   flex-wrap: wrap;
+}
+label{
+    max-width: 200px;
+}
+button{
+    width: 64px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+}
