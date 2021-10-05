@@ -1,6 +1,8 @@
 let myLibrary = [];
-tableOrder =["title","author","date","pages","hasRead"]; //order in table
-libraryTable = document.querySelector(".library tbody");
+const tableOrder =["title","author","date","pages","hasRead"]; //order in table
+const libraryTable = document.querySelector(".library tbody");
+const form = document.querySelector("#book-input");
+const formInputs = form.querySelectorAll("input");
 
 function Book(title,author,date,pages,hasRead){
     this.author = author;
@@ -27,6 +29,10 @@ Book.prototype.sort = function(){
 Book.prototype.delete = function(library){
     libraryTable.deleteRow(this.row.rowIndex-1);
     return library.filter(obj => obj!==this);
+}
+
+function clearForm(formInputs){
+    formInputs.forEach(input => input.value= "");
 }
 
 let bookOne = new Book("Title1","ath1","1967",246,false);
