@@ -53,11 +53,20 @@ function addBook(event){
     event.preventDefault();
 }
 function sortLibrary(key,reverse=false){
-    myLibrary.sort((a,b) => {
-        if (a[key]<b[key]) return -1;
-        else if (a[key]>b[key]) return 1;
-        else return 0;
-    })
+    if (key="hasRead"){
+        myLibrary.sort((a,b) => {
+            if (a[key]>b[key]) return -1;
+            else if (a[key]<b[key]) return 1;
+            else return 0;
+        })
+    }
+    else{
+        myLibrary.sort((a,b) => {
+            if (a[key]<b[key]) return -1;
+            else if (a[key]>b[key]) return 1;
+            else return 0;
+        })
+    }
     if (reverse===true) myLibrary = myLibrary.reverse();
     myLibrary.forEach(book => book.sort());
 }
