@@ -49,9 +49,9 @@ Book.prototype.sort = function(){
     libraryTable.appendChild(this.row);
 }
 Book.prototype.handleEvent = function(event){
-    console.log(event.target.classList)
+    console.log(event.target)
     //delete book
-    if (event.target.classList.value==="button-delete"){
+    if (event.target.parentElement.classList.value==="button-delete"){
         this.deleteButton.removeEventListener("click",this);
         libraryTable.deleteRow(this.row.rowIndex-1);
         myLibrary = myLibrary.filter(obj => obj!==this);
