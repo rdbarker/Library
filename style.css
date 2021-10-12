@@ -66,13 +66,12 @@ h1 {
 
 table {
     color: #333;
-    background: white;
     border-collapse: collapse;
   }
 table thead th,
 table tfoot th {
-    color: #777;
-    background: rgba(0,0,0,.1);
+    color: rgb(223, 223, 223);
+    background: rgb(87, 87, 87);
   }
 table caption {
     padding:.5em;
@@ -81,14 +80,27 @@ table th,
 table td {
     padding: .25em;
   }
-tbody tr:nth-of-type(odd) {
-    background: rgba(0,0,0,.05);
+tbody tr:nth-of-type(odd) td {
+    background: #80808059;
   }
-td:nth-child(1n+3){
+table tbody td:nth-child(1n+3){
   text-align: center;
 }
 td:nth-child(1n+5){
   width: 96px;
+}
+table tbody td:last-child{
+  text-align: left;
+  width: 32px;
+  padding:0;
+}
+th:nth-of-type(2),
+th:nth-of-type(1){
+  text-align: left;
+}
+td:nth-of-type(1),
+th:nth-of-type(1){
+  padding-left: .4em;
 }
 form{
    margin-bottom: 32px; 
@@ -104,6 +116,11 @@ label{
 input{
     font-size:18px;
     font-family: 'Montserrat', sans-serif;
+    margin-left: .2em;
+}
+input[type="checkbox"]{
+  width: 1em;
+  height: 1em;
 }
 button{
     font-size: 32px;
@@ -111,6 +128,9 @@ button{
     padding: 0;
     margin: 0;
     background: none;
+}
+button[type="submit"]{
+  margin-left: 104px;
 }
 .container{
     display: flex;
@@ -126,7 +146,27 @@ button{
     display: inline-block;
     position: relative;
     top: 0.1em;
+    width: 0;
 }
 .buttons{
   text-align: right;
+}
+.icon-tick{
+  color: #a5d522;
+}
+.icon-times{
+  color: #ed3d07;
+}
+.button-control,
+.button-delete{
+  background: #459737;
+  color: #f1f1f1;
+  border-radius: 20%;
+  margin-left: 8px;
+  padding-left: 2px;
+  font-size:32px;
+}
+
+.icon-trash{
+  color: #f1f1f1;
 }

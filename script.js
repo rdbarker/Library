@@ -7,61 +7,62 @@ const addBookButton = document.querySelector("#add-book");
 const clearBookForm = document.querySelector("#clear-form");
 const sortButtons = document.querySelectorAll("th> span")
 
-function Book(title,author,date,pages,hasRead){
-    this.author = author;
-    this.title = title;
-    this.date = date;
-    this.pages = pages;
-    this.hasRead = hasRead;
-    this.drawRow(); 
-}
-Book.prototype.changeReadStatus = function(){
-    this.hasRead = !this.hasRead;
-}
-Book.prototype.drawRow = function(){
-    this.row = libraryTable.insertRow(-1);
-    tableOrder.forEach(key=>{
+class Book{
+    constructor(title,author,date,pages,hasRead){
+        this.author = author;
+        this.title = title;
+        this.date = date;
+        this.pages = pages;
+        this.hasRead = hasRead;
+        this.drawRow(); 
+    }
+    changeReadStatus(){
+        this.hasRead = !this.hasRead;
+    }
+    drawRow(){
+        this.row = libraryTable.insertRow(-1);
+        tableOrder.forEach(key=>{
+            const cell = this.row.insertCell(-1);
+            if (key!=="hasRead"){
+                const text = document.createTextNode(this[key]);
+                cell.appendChild(text);
+            }
+            else{
+                this.readButton = document.createElement("button");
+                this.readButtonIcon = document.createElement("span");
+                if (this.hasRead===true) this.readButtonIcon.classList.add("icon-tick");
+                else this.readButtonIcon.classList.add("icon-times");
+                this.readButton.appendChild(this.readButtonIcon);
+                cell.appendChild(this.readButton);
+                this.readButton.addEventListener("click",this,false);
+            }
+        })
         const cell = this.row.insertCell(-1);
-        if (key!=="hasRead"){
-            const text = document.createTextNode(this[key]);
-            cell.appendChild(text);
+        this.deleteButton = document.createElement("button");
+        this.deleteButton.classList.add("button-delete");
+        const span = document.createElement("span");
+        span.classList.add("icon-trash");
+        this.deleteButton.appendChild(span);
+        cell.appendChild(this.deleteButton);
+        this.deleteButton.addEventListener("click",this,false);
+    }
+    sort(){
+        libraryTable.appendChild(this.row);
+    }
+    handleEvent(event){
+        console.log(event.target)
+        //delete book
+        if (event.target.parentElement.classList.value==="button-delete"){
+            this.deleteButton.removeEventListener("click",this);
+            libraryTable.deleteRow(this.row.rowIndex-1);
+            myLibrary = myLibrary.filter(obj => obj!==this);
         }
         else{
-            this.readButton = document.createElement("button");
-            this.readButtonIcon = document.createElement("span");
-            if (this.hasRead===true) this.readButtonIcon.classList.add("icon-tick");
-            else this.readButtonIcon.classList.add("icon-times");
-            this.readButton.appendChild(this.readButtonIcon);
-            cell.appendChild(this.readButton);
-            this.readButton.addEventListener("click",this,false);
+            this.changeReadStatus();
+            if (this.hasRead===true) this.readButtonIcon.classList="icon-tick";
+            else this.readButtonIcon.classList = "icon-times";
         }
-    })
-    const cell = this.row.insertCell(-1);
-    this.deleteButton = document.createElement("button");
-    this.deleteButton.classList.add("button-delete");
-    const span = document.createElement("span");
-    span.classList.add("icon-times");
-    this.deleteButton.appendChild(span);
-    cell.appendChild(this.deleteButton);
-    this.deleteButton.addEventListener("click",this,false);
-}
-Book.prototype.sort = function(){
-    libraryTable.appendChild(this.row);
-}
-Book.prototype.handleEvent = function(event){
-    console.log(event.target)
-    //delete book
-    if (event.target.parentElement.classList.value==="button-delete"){
-        this.deleteButton.removeEventListener("click",this);
-        libraryTable.deleteRow(this.row.rowIndex-1);
-        myLibrary = myLibrary.filter(obj => obj!==this);
     }
-    else{
-        this.changeReadStatus();
-        if (this.hasRead===true) this.readButtonIcon.classList="icon-tick";
-        else this.readButtonIcon.classList = "icon-times";
-    }
-    
 }
 function clearForm(event){
     formInputs.forEach(input => {
